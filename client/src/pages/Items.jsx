@@ -83,9 +83,11 @@ const Items = () => {
           alt="Torizon"
         />
         <div>
-          <button className="addButton">
-            <Link to="/add">Add new item</Link>
-          </button>
+          {auth.currentUser && (
+            <button className="addButton">
+              <Link to="/add">Add new item</Link>
+            </button>
+          )}
         </div>
       </header>
       <div className="box">

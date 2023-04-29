@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
-import axios from 'axios';
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import axios from "axios";
+import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -21,25 +22,25 @@ const Signup = () => {
       );
 
       const uid = userCredential.user.uid;
-      const response = await axios.post('http://localhost:8800/users', {
+      const response = await axios.post("http://localhost:8800/users", {
         author_id: uid,
       });
       console.log(response.data);
 
-      navigate('/items');
+      navigate("/items");
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
     }
-    };
+  };
 
   return (
     <main>
       <section>
         <div>
           <div>
-            <h1>FocusApp</h1>
+            <h1>Sign up</h1>
             <form>
               <div>
                 <label htmlFor="email-address">Email address</label>
@@ -72,9 +73,8 @@ const Signup = () => {
               </button>
             </form>
 
-            <p>
-              Already have an account?{' '}
-              <NavLink to="/login">Sign in</NavLink>
+            <p className="alreadyAccount">
+              Already have an account? <NavLink to="/login">Sign in</NavLink>
             </p>
           </div>
         </div>
