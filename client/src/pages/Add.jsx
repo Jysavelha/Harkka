@@ -34,7 +34,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/items", item);
+      await axios.post("https://torizon-mysql-db.onrender.com/items", item);
       navigate("/");
     } catch (err) {
       console.log(err);
