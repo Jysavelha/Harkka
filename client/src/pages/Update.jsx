@@ -25,7 +25,7 @@ const Update = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8800/items/${itemId}`, item);
+      await axios.put(`https://torizon-mysql-db.onrender.com/items/${itemId}`, item);
       navigate("/");
     } catch (err) {
       console.log(err);
