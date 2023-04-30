@@ -43,7 +43,7 @@ const Items = () => {
   useEffect(() => {
     const fetchAllitems = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/items");
+        const res = await axios.get("https://torizon-mysql-db.onrender.com/items");
         setitems(res.data);
       } catch (err) {
         console.log(err);
@@ -56,7 +56,7 @@ const Items = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/items/${id}`);
+      await axios.delete(`https://torizon-mysql-db.onrender.com/items/${id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
