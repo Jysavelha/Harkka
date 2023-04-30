@@ -11,7 +11,7 @@ const Add = () => {
     price: 0,
     picture: "",
     contact: "",
-    author_id: "", // add author_id to state
+    author_id: "",
   });
   const [error, setError] = useState(false);
   const navigate = useNavigate();
